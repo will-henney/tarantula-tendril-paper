@@ -1,0 +1,157 @@
+\documentclass[useAMS, usenatbib, a4paper]{mnras}
+\pdfsuppresswarningpagegroup=1
+% \RequirePackage{amsmath}
+% \documentclass[times]{aastex63}
+% \usepackage{natbib}
+\usepackage[spanish,es-minimal,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+%\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{fixltx2e}
+\usepackage{hyperref}
+\usepackage{savesym}
+\savesymbol{tablenum}
+\usepackage{siunitx}
+\restoresymbol{SIX}{tablenum}
+\usepackage{newtxtext}
+\usepackage[varg,varvw,smallerops]{newtxmath}
+\usepackage{xfrac} % for the \sfrac macro
+\usepackage{booktabs}
+\usepackage{array}   % for \newcolumntype macro
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of lrc column types
+\newcolumntype{R}{>{$}r<{$}} 
+\newcolumntype{C}{>{$}c<{$}}
+\hypersetup{colorlinks=True, linkcolor=blue!50!black, citecolor=black,
+  urlcolor=blue!50!black}
+
+\usepackage{etoolbox}
+\robustify\bfseries
+\robustify\itshape
+\usepackage{enumerate}
+
+\bibliographystyle{mnras}
+
+\sisetup{
+  % explicit""+" is useful for velocities
+  retain-explicit-plus = true,
+  % prefer 10^6 over 1 x 10^6
+  retain-unity-mantissa = false,
+  % Use x +/- e instead of x(e)  
+  separate-uncertainty = true,
+  % Make sure to pick up bold font when used in section heading for instance
+  detect-weight = true,
+}
+\DeclareSIUnit\msun{\text{M\ensuremath{_\odot}}}
+\DeclareSIUnit\lsun{\text{L\ensuremath{_\odot}}}
+
+% A better \ion command that works in more circumstances
+\newcommand\ION[2]{#1\,\scalebox{0.9}[0.8]{\uppercase{#2}}}
+\newcounter{ionstage}
+\renewcommand{\ion}[2]{\setcounter{ionstage}{#2}% 
+  \ensuremath{\mathrm{#1\,\scriptstyle\Roman{ionstage}}}}
+\newcommand\hii{\ion{H}{2}}
+
+% Stars in Orion, e.g., \th1C, \th2A
+\def\th#1#2{\ensuremath{\theta^{#1}\,\text{Ori~#2}}}
+% Wavenumbers
+\newcommand\wn{\ensuremath{\tilde{\nu}}}
+
+% Chemical formulae
+\newcommand*\chem[1]{\ensuremath{\mathrm{#1}}}
+% Atomic term symbols
+\newcommand\Config[1]{\ensuremath{\mathrm{#1}}}
+\newcommand\Term[3]{\ensuremath{\mathrm{#1\ ^{#2}#3}}}
+\newcommand\Level[4]{\ensuremath{\mathrm{#1\ ^{#2}#3_{#4}}}}
+
+% Emission lines
+\newcommand\ha{\ensuremath{\text{H}\alpha}}
+\newcommand\hb{\ensuremath{\text{H}\beta}}
+\newcommand\lya{\ensuremath{\text{Ly}\alpha}}
+\newcommand\lyb{\ensuremath{\text{Ly}\beta}}
+
+\newcommand\Raman{\ensuremath{_{\text{Raman}}}}
+\newcommand\scat{\ensuremath{_{\text{scat}}}}
+\newcommand\FUV{\ensuremath{_{\text{FUV}}}}
+\newcommand\wing{\ensuremath{_{\text{wing}}}}
+\newcommand\lamcont{\ensuremath{_{\lambda, \text{cont}}}}
+\newcommand\observed{\ensuremath{^{\text{obs}}}}
+\newcommand\intrinsic{\ensuremath{^{\text{int}}}}
+  
+
+
+\title[Tendrils in the Tarantula]
+{Tendrils in the Tarantula:
+  Extreme velocity shear features in the ionized gas of 30~Doradus
+}
+
+\author[Henney]{
+  William J. Henney\textsuperscript{1}\thanks{w.henney@irya.unam.mx}
+  and J. García Vázquez\textsuperscript{2}
+  \\
+  \textsuperscript{1}\foreignlanguage{spanish}{%
+    Instituto de Radioastronomía y
+    Astrofísica, Universidad Nacional Autónoma de México, Apartado
+    Postal 3-72, 58090 Morelia, Michaoacán, Mexico}\\
+  \textsuperscript{2}\foreignlanguage{spanish}{%
+    Escuela Superior de Física y Matemáticas,
+    Instituto Politécnico Nacional, Ciudad de México, México}
+}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2021}
+
+
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+
+
+\begin{abstract}
+  Using velocity shear maps, we find 
+  a spectacular network of curved tendril-like filaments
+  inside a low-density cavity of the Tarantula Nebula
+  (30~Doradus) in the Large Magellanic Cloud. 
+\end{abstract}
+\begin{keywords}
+  Atomic physics
+  -- ISM: individual objects (Orion Nebula)
+  -- Photodissociation regions
+  -- Radiative transfer
+\end{keywords}
+%\facilities{VLT:Yepun (MUSE); OANSPM:2.1m (Mezcal); Keck (HIRES)}
+%\object{M42}
+\section{Introduction}
+\label{sec:introduction}
+
+Fabry-Perot observations from \citet{Mendes-de-Oliveira:2017c}.
+
+We use MUSE observations from \citet{Castro:2018a}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figs/multi-shear-ha}
+  \caption{Velocity shear maps}
+  \label{fig:shear-maps}
+\end{figure}
+
+\section*{Acknowledgements}
+
+\bibliography{tarantula-refs}
+
+
+
+
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
